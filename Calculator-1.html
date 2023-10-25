@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        margin: 0;
+        background-color: #736e6e;
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        margin-top: 100px;
+        width: 350px;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 10px;
+      }
+      .result input[type="text"] {
+        width: 100%;
+        height: 40px;
+        border: none;
+      }
+      .buttons1 {
+        width: 115px;
+        height: 60px;
+        border: none;
+        background-color: #05b7a9;
+        color: white;
+      }
+      input:focus {
+        outline: none;
+        border: 1px solid transparent;
+      }
+      .calculator-bottom {
+        margin: 0;
+        justify-content: space-between;
+        align-items: center;
+
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .result {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+      input[type="button"] {
+        font-size: 1.2em;
+        font-weight: 500;
+        color: #ffffff;
+        background: #212121;
+        width: 25%;
+        height: 60px;
+        padding: 4%;
+        border: none;
+      }
+      .maths {
+        background-color: grey;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="result">
+          <input type="text" id="display" class="" />
+          <button class="buttons1" onclick="clearDisplay()">AC</button>
+        </div>
+
+        <div class="calculator-bottom">
+          <input type="button" value="7" onclick="addToDisplay('7')" />
+
+          <input type="button" value="8" onclick="addToDisplay('8')" />
+
+          <input type="button" value="9" onclick="addToDisplay('9')" />
+
+          <input
+            type="button"
+            value="+"
+            onclick="addToDisplay('+')"
+            style="color: white; background-color: gray"
+          />
+          <br />
+          <input type="button" value="4" onclick="addToDisplay('4')" />
+
+          <input type="button" value="5" onclick="addToDisplay('5')" />
+
+          <input type="button" value="6" onclick="addToDisplay('6')" />
+
+          <input
+            type="button"
+            value="-"
+            onclick="addToDisplay('-')"
+            style="color: white; background-color: gray"
+          />
+          <br />
+          <input type="button" value="1" onclick="addToDisplay('1')" />
+
+          <input type="button" value="2" onclick="addToDisplay('2')" />
+
+          <input type="button" value="3" onclick="addToDisplay('3')" />
+
+          <input
+            type="button"
+            value="÷"
+            onclick="addToDisplay('/')"
+            style="color: white; background-color: gray"
+          />
+          <br />
+          <input type="button" value="." onclick="addToDisplay('.')" />
+
+          <input type="button" value="0" onclick="addToDisplay('0')" />
+
+          <input type="button" value="=" onclick="calculateResult()" />
+
+          <input
+            type="button"
+            value="*"
+            onclick="addToDisplay('*')"
+            style="color: white; background-color: gray"
+          />
+          <br />
+        </div>
+      </form>
+    </div>
+    <script>
+      function addToDisplay(value) {
+        document.getElementById("display").value += value;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+
+      function calculateResult() {
+        try {
+          var result = eval(document.getElementById("display").value);
+          document.getElementById("display").value = result;
+        } catch (error) {
+          document.getElementById("display").value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
